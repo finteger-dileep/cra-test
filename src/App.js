@@ -6,8 +6,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Test />} /> */}
-        <Route path="/" element={<Modal />} />
+        <Route path="/" element={<Test />} />
+        {/* <Route path="/" element={<Modal />} /> */}
       </Routes>
     </BrowserRouter>
   );
