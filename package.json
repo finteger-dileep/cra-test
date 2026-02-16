@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.19",
@@ -22,7 +21,13 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "postbuild": "react-snap",
     "test": "craco test"
+  },
+  "reactSnap": {
+    "skipThirdPartyRequests": true,
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "puppeteerExecutablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +49,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
-    "raw-loader": "^4.0.2"
+    "raw-loader": "^4.0.2",
+    "react-snap": "^1.23.0"
   }
 }
