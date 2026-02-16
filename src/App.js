@@ -13,8 +13,13 @@ import AboutUs from "./components/hero-section/AboutUs";
 import ContactUs from "./components/hero-section/ContactUs";
 import PartnerWithUs from "./components/hero-section/PartnerWithUs";
 import Pricing from "./components/hero-section/Pricing";
-import PrivacyPolicy from "./components/hero-section/PrivacyPolicy";
-import TermsAndConditions from "./components/hero-section/TermsAndConditions";
+// import PrivacyPolicy from "./components/hero-section/PrivacyPolicy";
+// import TermsAndConditions from "./components/hero-section/TermsAndConditions";
+
+// import PrivacyPolicy from "../b/static-prompts/latest-b2/PrivacyPolicy";
+// import TermsAndConditions from "../b/static-prompts/latest-b2/TermsAndConditions";
+// import CookiePolicy from "../b/static-prompts/latest-b2/CookiePolicy";
+
 
 // Root layout component that wraps all routes
 const Root = () => {
@@ -63,6 +68,10 @@ export default function App() {
             {
               path: "/",
               element: <Test />,
+
+              // element: <PrivacyPolicy />,
+              // element: <TermsAndConditions />,
+              // element: <CookiePolicy />,
             },
             {
               path: "/about-us",
@@ -80,14 +89,14 @@ export default function App() {
               path: "/pricing",
               element: <Pricing />,
             },
-            {
-              path: "/privacy-policy",
-              element: <PrivacyPolicy />,
-            },
-            {
-              path: "/terms-and-conditions",
-              element: <TermsAndConditions />,
-            },
+            // {
+            //   path: "/privacy-policy",
+            //   element: <PrivacyPolicy />,
+            // },
+            // {
+            //   path: "/terms-and-conditions",
+            //   element: <TermsAndConditions />,
+            // },
             // {
             //   path: "/modal",
             //   element: <Modal />,
