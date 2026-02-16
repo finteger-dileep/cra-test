@@ -22,7 +22,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "postbuild": "react-snap",
+    "postbuild": "node -e \"if (process.env.CI !== 'true') { require('child_process').execSync('react-snap', {stdio: 'inherit'}) }\"",
     "test": "craco test"
   },
   "reactSnap": {
@@ -30,8 +30,7 @@
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
-    ],
-    "puppeteerExecutablePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+    ]
   },
   "eslintConfig": {
     "extends": [
