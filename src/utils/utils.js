@@ -407,10 +407,8 @@ const isSameOriginDocumentLink = (url) => {
     return false
   }
 
-  const disallowedSchemes = ['mailto', 'tel', 'data', 'java' + 'script']
-  return !disallowedSchemes.some((scheme) =>
-    url.toLowerCase().startsWith(`${scheme}:`)
-  )
+  const disallowedSchemePattern = /^(mailto|tel|data|javascript):/i
+  return !disallowedSchemePattern.test(url)
 }
 
 // ✅ React Portal Nested Popup Component
