@@ -71,8 +71,9 @@ const parseChildNode = (child, index) => {
 }
 
 // Helper function to check if a URL is absolute
+// eslint-disable-next-line no-unused-vars
 const isAbsoluteUrl = (url) => {
-  return /^(https?:\/\/|\/\/|[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,})/i.test(
+  return /^(https?:\/\/|\/\/|[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,})/i.test(
     url
   )
 }
@@ -1148,7 +1149,7 @@ const MainPopup = ({
 
     attemptRestore()
     return true
-  }, [navigationHistory])
+  }, [navigationHistory, showSnackbar])
 
   // Handle Escape and Backspace keys for navigation (only if no nested popup)
   // - If there's navigation history: go back to previous document at exact position
