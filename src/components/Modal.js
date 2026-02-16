@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useEffect, useState } from 'react'
-import { parseHtmlSanitizeAddTargetToLinks } from '../utils/util2'
+import { parseHtmlSanitizeAddTargetToLinks } from '../utils/utils'
 import html from './content.html';
 
 

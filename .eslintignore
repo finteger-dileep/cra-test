@@ -1,0 +1,10 @@
+# Ignore backup folders
+b/
+backup/
+
+# Ignore build outputs
+build/
+dist/
+
+# Ignore dependencies
+node_modules/

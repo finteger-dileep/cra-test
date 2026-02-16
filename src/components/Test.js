@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { parseHtmlSanitizeAddTargetToLinks } from '../utils/utils-latest-production'
+import { parseHtmlSanitizeAddTargetToLinks } from '../utils/utils'
 import html from './content.html';
 
 function Test() {
@@ -7,9 +7,10 @@ function Test() {
   useEffect(() => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
+    // link.href = "https://gtlcdn-eufeh8ffbvbvacgf.z03.azurefd.net/guide/stylesheets/prod/article.css";
+    // link.href = "https://gtlcdn-eufeh8ffbvbvacgf.z03.azurefd.net/guide/stylesheets/prod/decision.css";
     link.href = "https://gtlcdn-eufeh8ffbvbvacgf.z03.azurefd.net/guide/stylesheets/prod/guide.css";
     // link.href = "https://gtlcdn-eufeh8ffbvbvacgf.z03.azurefd.net/guide/stylesheets/prod/dtaa.css";
-    // link.href = "https://gtlcdn-eufeh8ffbvbvacgf.z03.azurefd.net/guide/stylesheets/prod/decision.css";
     link.id = "external-css";
 
     if (!document.getElementById("external-css")) {
@@ -27,7 +28,7 @@ function Test() {
 
 
   function handleSearchChange(e) {
-      setSearchTerm(e.target.value);
+    setSearchTerm(e.target.value);
   }
 
   return (
