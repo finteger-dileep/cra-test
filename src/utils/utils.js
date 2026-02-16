@@ -143,7 +143,7 @@ const openUrlWithFocusManagement = (url, linkText, showSnackbar) => {
 
 // Enhanced CSS selector escaping function
 const escapeSelector = (selector) => {
-  return selector.replace(/[!"#$%&'()*+,.\/:;<=>?@\[\\\]^`{|}~]/g, '\\$&')
+  return selector.replace(/[!"#$%&'()*+,./:;<=>?@\[\\\]^`{|}~]/g, '\\$&')
 }
 
 // Helper function to find element by ID with special characters
@@ -271,7 +271,6 @@ const getTopmostVisibleElement = (container) => {
   if (!container) return null
 
   const containerRect = container.getBoundingClientRect()
-  const scrollTop = container.scrollTop
 
   // Get all elements that could be "readable" content
   const candidates = container.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, td, th, div, section, article, span, header')
@@ -407,6 +406,7 @@ const isSameOriginDocumentLink = (url) => {
     return false
   }
 
+  // eslint-disable-next-line no-script-url
   return !url.startsWith('mailto:') &&
     !url.startsWith('tel:') &&
     !url.startsWith('javascript:') &&
@@ -714,6 +714,7 @@ const MainPopup = ({
   // Derive documentId for annotations
   // For external documents: extract slug from URL (e.g., /en/law/article/article-123 -> article-123)
   // For inline content: use baseUrl as identifier
+  // eslint-disable-next-line no-unused-vars
   const annotationDocumentId = useMemo(() => {
     if (currentUrl) {
       // Extract slug from URL path (last segment before hash or query)
@@ -730,6 +731,7 @@ const MainPopup = ({
   }, [currentUrl, baseUrl])
 
   // Determine annotation document type based on URL patterns
+  // eslint-disable-next-line no-unused-vars
   const annotationDocumentType = useMemo(() => {
     const url = currentUrl || baseUrl || ''
     if (url.includes('/article/') || url.includes('/articles/')) return 'article'
@@ -756,7 +758,9 @@ const MainPopup = ({
   //   showSnackbar,
   //   enableAnnotations: true,
   // })
+  // eslint-disable-next-line no-unused-vars
   const annotations = []
+  // eslint-disable-next-line no-unused-vars
   const applyHighlights = () => {}
   const ContextMenuComponent = null
   const TouchFabComponent = null
@@ -839,7 +843,7 @@ const MainPopup = ({
           throw new Error('Could not parse document URL')
         }
 
-        const { documentType: parsedDocType, slug, hash } = parsed
+        const { documentType: parsedDocType } = parsed
 
         // Set document type for CSS loading
         setDocumentType(parsedDocType)
@@ -852,6 +856,7 @@ const MainPopup = ({
           'taxTreaty': 'tax-treaties',
         }
 
+        // eslint-disable-next-line no-unused-vars
         const entityType = entityTypeMap[parsedDocType] || 'guidelines'
         // const result = await apiService.getEntityBySlug(entityType, slug)
         // COMMENTED OUT FOR TESTING - apiService not available
