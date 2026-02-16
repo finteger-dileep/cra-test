@@ -8,7 +8,6 @@ import {Alert,
   CardContent,
   Grid,
   Chip,
-  Divider,
   List,
   ListItem,
   ListItemIcon,
@@ -28,19 +27,13 @@ import {Alert,
 } from '@mui/material'
 import {
   Check,
-  Star,
-  TrendingUp,
   Lock,
   Speed,
   Support,
   ExpandMore,
-  ShoppingCart,
   AccountBalance,
-  Verified,
-  LocalOffer,
   Business,
   Email,
-  Info,
 } from '@mui/icons-material'
 // import { useNavigate, useLocation } from 'react-router-dom'
 // import { useAuth } from '../../context/AuthContext'
@@ -64,9 +57,8 @@ const Pricing = () => {
   // const location = useLocation()
   // const { isAuthenticated, user, quotaStatus } = useAuth()
   const navigate = () => {}
-  const location = { hash: '' }
+  const locationHash = ''
   const isAuthenticated = false
-  const user = null
   const quotaStatus = null
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
@@ -174,18 +166,16 @@ const Pricing = () => {
     // },
   ]
 
-  const creditPackages = [] // Not used in this version
-
   // Scroll to credits section if hash is present
   useEffect(() => {
-    if (location.hash === '#credits') {
+    if (locationHash === '#credits') {
       setTimeout(() => {
         document
           .getElementById('credits')
           ?.scrollIntoView({ behavior: 'smooth' })
       }, 100)
     }
-  }, [location])
+  }, [locationHash])
 
   const handlePlanSelect = (planId) => {
     if (!isAuthenticated) {

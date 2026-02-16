@@ -9,15 +9,11 @@ import {
   CardContent,
   Button,
   Alert,
-  Chip,
   Paper,
-  Divider,
 } from '@mui/material'
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles'
 import {
   CheckCircle,
-  Search,
-  Link as LinkIcon,
   Schedule,
   Description,
   People,

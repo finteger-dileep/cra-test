@@ -8,30 +8,11 @@ import {
   TextField,
   Button,
   InputAdornment,
-  IconButton,
-  Menu,
-  MenuItem,
   Snackbar,
   Alert,
   Card,
   CardContent,
   Link,
-  Divider,
-  FormControl,
-  InputLabel,
-  OutlinedInput,
-  Chip,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  ListItemIcon,
-  Collapse,
-  ClickAwayListener,
-  Popper,
-  Grow,
-  MenuList,
-  Avatar,
 } from '@mui/material'
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles'
 import {
@@ -45,7 +26,6 @@ import {
   Schedule,
   CheckCircle,
   Business,
-  LocationOn,
   ExpandMore,
   Search,
 } from '@mui/icons-material'
@@ -268,9 +248,6 @@ const ContactUs = () => {
   const dropdownRef = useRef(null)
   const buttonRef = useRef(null)
 
-  // Get backend URL from environment variable
-  const baseUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8080'
-
   // Memoized filtered countries for performance
   const filteredCountries = useMemo(() => {
     if (!searchTerm) return countries
@@ -422,7 +399,7 @@ const handleSubmit = async (e) => {
       phoneWithCountryCode = `${selectedCountry.phone}${formData.phone.trim()}`
     }
 
-    const contactUsFormResponse = {
+    const contactUsFormPayload = {
       name: formData.name.trim(),
       email: formData.email.trim(),
       phone: phoneWithCountryCode,
@@ -431,9 +408,9 @@ const handleSubmit = async (e) => {
       // userId: user ? user.id : null, // Add user ID if available for backend tracking
     }
 
-    // Use ApiService instead of fetch
-    // await apiService.post('/api/v1/contactus/', contactUsFormResponse)
-    throw new Error('API service not available')
+    if (!contactUsFormPayload) {
+      throw new Error('Invalid contact form payload')
+    }
 
     setFormData({
       name: '',

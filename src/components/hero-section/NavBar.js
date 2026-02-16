@@ -48,7 +48,6 @@ import AdminPanelSettingsRoundedIcon from '@mui/icons-material/AdminPanelSetting
 // import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded'
 import Avatar from '@mui/material/Avatar'
 // import { useAuth } from '../../context/AuthContext'
-import HandshakeRoundedIcon from '@mui/icons-material/HandshakeRounded'
 import MapPinIcon from '@mui/icons-material/LocationOn'
 import { useNavigate } from 'react-router'
 // import { RoleBasedAccess } from '../RoleBasedAccess'

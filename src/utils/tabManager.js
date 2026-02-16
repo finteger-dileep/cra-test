@@ -759,65 +759,6 @@ function setupNewTabHighlighting(newWindow, hashFragment) {
   localTimeouts.push(initialTimeoutId)
 }
 
-function getTrackCategory(url) {
-  if (!url) return 'new_tab'
-
-  const lowerUrl = url.toLowerCase()
-
-  const allGuideTypes = [
-    'GUIDE - Federal Tax Authority Guide',
-    'GUIDE - Zakat, Tax and Customs Authority',
-    'GUIDE - Foreign Account Tax Compliance Act Guide',
-    'GUIDE - VAT Taxpayer Guide',
-    'GUIDE - Oman Tax Authority',
-    'GUIDE - National Bureau for Revenue',
-    'PC - Public Clarification',
-    'CIRCULAR - Circular',
-  ]
-
-  const allDecisionTypes = [
-    'BL - Bylaws',
-    'ERS - Executive Regulations',
-    'IR - Implementing Regulations',
-    'EB - Executive Bylaws',
-    'CD - Cabinet Decision',
-    'MD - Ministerial Decision',
-    'FTA - Federal Tax Authority Decision',
-    'ZD - ZATCA Decision',
-    'TD - Tax Department, Ministry of Finance',
-    'ER - Executive Rules and Instructions',
-    'JD - Judicial Decision',
-  ]
-
-  // 1. Extract prefixes (e.g., 'bl', 'ers', 'guide', 'pc')
-  const decisionPrefixes = allDecisionTypes.map((item) =>
-    item.split(' - ')[0].toLowerCase()
-  )
-  const guidePrefixes = allGuideTypes.map((item) =>
-    item.split(' - ')[0].toLowerCase()
-  )
-
-  // 2. Check conditions in order of priority
-  if (lowerUrl.includes('article')) {
-    return 'article'
-  }
-
-  if (decisionPrefixes.some((prefix) => lowerUrl.includes(prefix))) {
-    return 'decision'
-  }
-
-  if (guidePrefixes.some((prefix) => lowerUrl.includes(prefix))) {
-    return 'guide'
-  }
-
-  if (lowerUrl.includes('dtaa')) {
-    return 'DTAA'
-  }
-
-  // Fallback
-  return 'new_tab'
-}
-
 /**
  * Legacy function for compatibility with existing articleCardHandlers
  * @param {object} article - Article object

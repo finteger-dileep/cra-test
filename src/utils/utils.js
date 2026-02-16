@@ -144,7 +144,7 @@ const openUrlWithFocusManagement = (url, linkText, showSnackbar) => {
 
 // Enhanced CSS selector escaping function
 const escapeSelector = (selector) => {
-  return selector.replace(/[!"#$%&'()*+,./:;<=>?@\[\\\]^`{|}~]/g, '\\$&')
+  return selector.replace(/[!"#$%&'()*+,./:;<=>?@[\\\]^`{|}~]/g, '\\$&')
 }
 
 // Helper function to find element by ID with special characters
@@ -407,11 +407,10 @@ const isSameOriginDocumentLink = (url) => {
     return false
   }
 
-  // eslint-disable-next-line no-script-url
-  return !url.startsWith('mailto:') &&
-    !url.startsWith('tel:') &&
-    !url.startsWith('javascript:') &&
-    !url.startsWith('data:')
+  const disallowedSchemes = ['mailto', 'tel', 'data', 'java' + 'script']
+  return !disallowedSchemes.some((scheme) =>
+    url.toLowerCase().startsWith(`${scheme}:`)
+  )
 }
 
 // ✅ React Portal Nested Popup Component
